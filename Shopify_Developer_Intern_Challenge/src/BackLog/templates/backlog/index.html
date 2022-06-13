@@ -1,0 +1,15 @@
+{% extends "backlog/base.html"%}
+{% load static %}
+
+{% block content %}
+<!-- HOME PAGE -->
+<div class="accueil">
+    
+        <H1>Welcome to Logistic & Co</H1>
+        <a href="{% url 'products' %}"><button type="button" class="btn btn-info btn-lg mx-3" >Create New Product</button></a>
+        <a href="{% url 'warehouses' %}"><button type="button" class="btn btn-info btn-lg mx-3" >Create New Warehouse</button></a>
+    
+</div>
+
+<!-- HOME PAGE ENDS-->
+{% endblock %}

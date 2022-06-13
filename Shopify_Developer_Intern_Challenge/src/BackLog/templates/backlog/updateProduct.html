@@ -1,0 +1,12 @@
+{% extends "backlog/base.html"%}
+{% load static %}
+
+{% block content %}
+<!-- Products table -->
+<form action="" method="POST" style="margin-top:15rem;">
+    {% csrf_token %}
+    {{ productForm }}
+    <input type="submit" name="Update" >
+</form>
+
+{% endblock %}

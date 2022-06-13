@@ -1,0 +1,80 @@
+{% extends "backlog/base.html"%}
+{% load static %}
+
+{% block content %}
+<!-- Products table -->
+
+<div class="container-fluid content px-4">
+    <h1>Warehouses</h1>
+    <div class="row">
+        <div class="col-2">
+            Warehouse
+        </div>
+        <div class="col-2">
+            Location
+        </div>
+        <div class="col-2">
+            Maximum Capacity
+        </div>
+        <div class="col">
+            Inventory
+        </div>
+        <div class="col-1">
+            Capacity Left
+        </div>
+        <div class="col-1">
+            Update
+        </div>
+        <div class="col-1">
+            Delete
+        </div>
+    </div>
+    {% for w,i in warehouseData %}
+    <div class="row">
+        <div class="col-2">
+            {{w}}
+        </div>
+        <div class="col-2">
+            {{w.location}}
+        </div>
+        <div class="col-2">
+            {{w.capacity}}
+        </div>
+        <div class="col">
+            {% for pt in w.products_set.all %}
+            {{pt}},
+            {% endfor %}
+        </div>
+        <div class="col-1">
+            {{ i }}
+        </div>
+        <div class="col-1">
+            <a href="{% url 'update-warehouse' id=w.id%}">update</a>
+        </div>
+        <div class="col-1">
+            <a href="{% url 'delete-warehouse' id=w.id%}">delete</a>
+        </div>
+    </div>
+    {% endfor %}
+    <form action="" method="POST">
+    <div class="row">
+        {% csrf_token %}
+        {% for field in warehouseForm %}
+        <div class="col-2">
+            <label for="{{ field.label  }}" class="col-form-label" hidden></label>
+            <div>
+                <input name="{{ field.name }}" class="form-control" type="{{ field.field.widget.input_type }}"
+                    placeholder="{{ field.label  }}"
+                    id="{{ field.label  }}">
+            </div>
+        </div>
+        {% endfor %}
+        <input type="submit" name="add_warehouse" value="Add Warehouse" class="col-6">
+    </div>
+    </form>
+</div>
+
+
+<!-- Products table ends -->
+
+{% endblock %}

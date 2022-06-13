@@ -1,0 +1,26 @@
+.navbar{
+    background-color: aquamarine;
+}
+
+.navbar-toggler{
+    align-items: flex-end !important;
+}
+
+.navbar-toggler-icon{
+    align-items: flex-end !important;
+}
+
+h1{
+    margin-block-start: 0 !important;
+    margin-block-end: 0 !important;
+}
+.content{
+    margin-top: 5rem;
+    margin-bottom: 2rem;
+}
+
+.col, .col-3, .col-1, .col-2{
+    border: 1px grey solid;
+}
+
+
